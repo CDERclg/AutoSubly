@@ -77,6 +77,10 @@ export default function CaptionEditor({ file, words = [], transcript = "" }) {
   const [playing, setPlaying] = useState(false);
   const [style, setStyle] = useState("hormozi");
   const [fontSize, setFontSize] = useState(30);
+  const [captionPosition, setCaptionPosition] = useState("bottom");
+const [captionBackground, setCaptionBackground] = useState(true);
+const [captionOutline, setCaptionOutline] = useState(false);
+const [fontWeight, setFontWeight] = useState("900");
   const [selectedChunk, setSelectedChunk] = useState(0);
   const [editedTexts, setEditedTexts] = useState({});
   const [exporting, setExporting] = useState(false);
@@ -184,6 +188,11 @@ export default function CaptionEditor({ file, words = [], transcript = "" }) {
       form.append("words", JSON.stringify(words));
       form.append("style", style);
       form.append("editedTexts", JSON.stringify(editedTexts));
+      form.append("fontSize", String(fontSize));
+form.append("captionPosition", captionPosition);
+form.append("captionBackground", String(captionBackground));
+form.append("captionOutline", String(captionOutline));
+form.append("fontWeight", fontWeight);
 
       const response = await fetch("/api/render", {
         method: "POST",
