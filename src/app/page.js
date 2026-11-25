@@ -1,6 +1,7 @@
 
 import Navbar from "@/components/Navbar";
 import UploadSection from "@/components/UploadSection";
+import HomeSeoSections from "../components/HomeSeoSections";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
       </section>
 
       <UploadSection />
+      <HomeSeoSections />
 
       <section
         id="how-it-works"
